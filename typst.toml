@@ -1,13 +1,13 @@
 [package]
-name = "minimal-cv"
+name = "alpin-cv"
 version = "0.1.0"
-authors = ["lelimacon <https://github.com/lelimacon>"]
+authors = ["Edwin Cox <https://github.com/edwin-cox>"]
 license = "MIT"
 description = "A clean and customizable CV template"
 categories = ["cv"]
 keywords = ["CV", "Curriculum Vitae", "Resume", "Minimal", "Professional"]
-repository = "https://github.com/lelimacon/typst-minimal-cv"
-homepage = "https://github.com/lelimacon/typst-minimal-cv"
+repository = "https://github.com/edwin-cox/typst-alpin-cv"
+homepage = "https://github.com/edwin-cox/typst-alpin-cv"
 exclude = ["*.pdf"]
 entrypoint = "package.typ"
 

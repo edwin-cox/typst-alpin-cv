@@ -1,234 +1,143 @@
 #import "../package.typ": *
+#import "../common.typ": *
 
-
-#let secondary-theme = (
-  accent-color: red,
-  body-color: red,
-)
-
-
-// To learn about theming, see https://github.com/lelimacon/typst-minimal-cv
 #show: cv.with(
-  theme: (
-    //font: "Roboto",
-    //accent-color: purple,
-    //main-accent-color: red,
-    //main-body-color: green,
-  ),
-  title: "John Doe",
-  subtitle: "Developer, Developer, Developer",
-  aside: {
+  theme: theme,
+  photo: "photo.png",
 
-    section(
-      theme: secondary-theme,
-      "Contact",
-      {
-        entry(
-          "Home",
-          "Hong Kong, China",
-          none,
-        )
-        entry(
-          "Phone",
-          link("https://wa.me/85212345678", "+852 1234 5678"),
-          none,
-        )
-        entry(
-          "Email",
-          link("mailto:contact@me.com", "contact@me.com"),
-          none,
-        )
-        entry(
-          "LinkedIn",
-          link("https://www.linkedin.com/in/john-doe", "in/john-doe"),
-          none,
-        )
-      },
+  contact: 
+  [
+    = JOHN DOE
+    == Developer, developer, developer
+    *
+    #grid(
+      columns: (1em, 1fr), gutter: 0.5em, align: (center, left),
+      [_🎂_],[31.12.1999 #h(1fr) _🌍_ Nationality],
+      [_🏠_],[123 Maint Street, NY 10001 #h(1fr) _📞_  +852 1234 5678],
+      [_✉️_],[contact\@me.com #h(1fr) _#link[X]_ john-doe-000000 #h(1fr) #link("in") John_Doe]
     )
+    *
+  ],
 
-    section(
-      "Technology Stack",
-      {
-        entry(
-          "Web",
-          "ASP.NET + Blazor",
-          [
-            #progress-bar(100%)
-          ],
-        )
-        entry(
-          none,
-          "Express + React",
-          [
-            #progress-bar(50%)
-          ],
-        )
-        entry(
-          "Desktop",
-          "WPF",
-          [
-            #progress-bar(75%)
-          ],
-        )
-        entry(
-          "Native",
-          "Xamarin, Flutter",
-          [
-            #progress-bar(50%)
-          ],
-        )
-        entry(
-          "DBMS",
-          "MS SQL, PostgreSQL, MongoDB",
-          [
-            #progress-bar(75%)
-          ],
-        )
-        entry(
-          "Ops",
-          "Scripting",
-          [PowerShell, VBS/VBA, Python],
-        )
-        entry(
-          none,
-          "Hosting, CI/CD",
-          [Terraform, Azure, DigitalOcean,\ GitHub Actions],
-        )
-        entry(
-          "Other",
-          "Gaming",
-          [Unity, Godot],
-        )
-        entry(
-          none,
-          "Graphics",
-          [Illustrator, Blender],
-        )
-      },
-    )
+  aside: [
+    #show heading.where(level: 2): set text(fill: theme.icon-color)
 
-    section(
-      "Languages",
-      {
-        entry(
-          right: [_Mother Ship_],
-          "Fluent",
-          "🇺🇸 English",
-          none,
-        )
-        entry(
-          right: [_Ich bin ein Berliner_],
-          "Proficient",
-          "🇩🇪 German",
-          none,
-        )
-        entry(
-          right: "恭喜發財",
-          none,
-          "🇨🇳 Mandarin",
-          none,
-        )
-        entry(
-          right: "いただきます",
-          "Basic",
-          "🇯🇵 Japanese",
-          none,
-        )
-      },
-    )
+    = EDUCATION
+    == #lorem(3)
+    #cal[08.2367 - 01.2370] \
+    School of #lorem(2)
 
-    section(
-      "Extracurricular Activities",
-      {
-        entry(
-          "Culture",
-          none,
-          [Traveling, photography,\ cinephile, theater],
-        )
-        entry(
-          "Sport",
-          none,
-          [Hiking, bodybuilding, chess],
-        )
-      },
-    )
+    = TECH. STACK
+    #tags[
+      - ASM
+      - C/C++
+      - Fortran
+      - Lisp
+      
+      #v(theme.tag-separator)
+      - Node.JS
+      - Laravel
+      - Spring Boot
+      - GTK
+    ]
+    #v(theme.section-separator)
+    = TOOLS
+    #tags[
+      - Git
+      - Github
+      - Docker
+      - Kubernetes
+      #v(theme.tag-separator)
+      - PostgreSQL
+      - MySQL
+      - Oracle
+      #v(theme.tag-separator)
+      - IntelliJ
+      - VSCode
+      - Eclipse
 
-  }
+    ]
+   #v(theme.section-separator)
+
+
+    = LANGUAGES
+    #table(
+      [English],[Fluent],
+      [German],[Proficient],
+      [Mandarin],[proficient],
+      [Japanese],[Basic]
+    )<langs>
+    #v(theme.section-separator)
+
+
+    = HOBBIES
+    #tags[
+      - Traveling
+      - Photography
+      - Cinephile
+      - Theater
+    ]
+    
+    = REFERENCES
+    == Marie Sue
+    #lorem(2) \
+    #lorem(1) \
+    #lorem(3) 
+    #v(theme.section-separator)
+    
+    = FORMATIONS
+    == Oracle
+    #calloc([01.2100],[Moon])
+    Oracle Certified Professional \
+    Java SE 5300 Programmer \
+    #v(theme.section-separator)
+
+  ]
 )
 
+= ABOUT ME
+==
+_#lorem(30)_
 
-#section(
-  "Professional Experience",
-  {
-    entry(
-      right: [*\@Microsoft* – Cyberport, HK 🇭🇰],
-      "2020 - now",
-      "Software Engineer",
-      [
-        #par(lorem(24))
-        #list(
-          lorem(20),
-          lorem(7),
-          lorem(16),
-          lorem(16),
-        )
-      ],
-    )
-    entry(
-      theme: secondary-theme,
-      right: [*\@Supersoft* -- Seattle, US 🇺🇸],
-      "2018 - now",
-      "Co-Founder, CTO",
-      [
-        #par(lorem(28))
-        #par(lorem(16))
-      ],
-    )
-    entry(
-      right: [*\@Microsoft* -- Berlin, DE 🇩🇪],
-      "2016 - 2020",
-      "Software Engineer",
-      [
-        #par(lorem(12))
-        #list(
-          lorem(20),
-          lorem(16),
-          lorem(7),
-        )
-      ],
-    )
-    entry(
-      right: [*\@Microsoft* -- Redmond, US 🇺🇸],
-      "2015 - 2016",
-      "CS Intern",
-      [
-        #par(lorem(12))
-      ],
-    )
-    entry(
-      right: [*\@MIT* -- Cambridge, US 🇺🇸],
-      "2013, 2 yrs",
-      "Teaching Assistant",
-      [ #lorem(24) ],
-    )
-  },
-)
+= PROFESSIONAL EXPERIENCE
+#set line(length:100%, stroke: (paint: theme.body-color, thickness:0.5pt))
 
-#section(
-  "Educational Background",
-  {
-    entry(
-      theme: secondary-theme,
-      right: [*\@SNU 서울대학교* -- Seoul, KR 🇰🇷],
-      "2012, 6 mths",
-      "Univ. Exchange",
-      [ #lorem(16) ],
-    )
-    entry(
-      right: [*\@MIT* -- Cambridge, US 🇺🇸],
-      "2010 - 2015",
-      "Master of Engineering",
-      [ #lorem(24) ],
-    )
-  },
-)
+== Software Engineer #h(1fr) _Microsoft_
+#calloc([09.2020 -- now],[Cyberport, HK])
+#tags[
+  - C\#
+  - .NET
+  - ASP
+  - Azure
+]
+#lorem(30)
+- #lorem(10)
+- #lorem(18)
+- #lorem(12)
+- #lorem(5)
+
+#line()
+
+== Co-Founder,CTO #h(1fr) _Supersoft #lorem(6)_
+#cal[2018 -- 2020] #h(1fr) _*#lorem(4)*_ #h(1.5em) #loc[Seatle, US]
+#lorem(35)
+
+#lorem(20)
+
+#line()
+
+== Software Engineer #h(1fr) _Google_
+#calloc([07.2013 -- 04.2018],[Paris, FR])
+#tags[
+  - Java
+  - Spring Boot
+  - Kotlin
+  - PostgreSQL
+]
+
+#lorem(20)
+- #lorem(11)
+- #lorem(8)
+- #lorem(15)
+- #lorem(30)
+- #lorem(21)
